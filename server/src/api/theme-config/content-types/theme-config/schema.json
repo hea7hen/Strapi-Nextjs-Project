@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "theme_configs",
+  "info": {
+    "singularName": "theme-config",
+    "pluralName": "theme-configs",
+    "displayName": "Theme Config"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "primary": {
+      "type": "string"
+    },
+    "secondary": {
+      "type": "string"
+    },
+    "fonts": {
+      "displayName": "Fonts",
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.fonts"
+    },
+    "ComponentSettings": {
+      "displayName": "ComponentSettings",
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.component-settings"
+    },
+    "tenant": {
+      "type": "uid"
+    }
+  }
+}

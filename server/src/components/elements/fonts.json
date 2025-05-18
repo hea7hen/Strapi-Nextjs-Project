@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_elements_fonts",
+  "info": {
+    "displayName": "Fonts"
+  },
+  "options": {},
+  "attributes": {
+    "primary": {
+      "type": "string"
+    },
+    "secondary": {
+      "type": "string"
+    }
+  }
+}

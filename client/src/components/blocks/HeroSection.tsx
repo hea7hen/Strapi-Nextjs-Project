@@ -36,7 +36,7 @@ export function HeroSection({
           </Link>
         </button>
       )}
-      {logo && (
+      {/* {logo && (
         <StrapiImage
           src={logo.image.url}
           alt={logo.image.alternativeText || "No alternative text provided"}
@@ -44,7 +44,7 @@ export function HeroSection({
           width={120}
           height={120}
         />
-      )}
+      )} */}
     </section>
   );
 }

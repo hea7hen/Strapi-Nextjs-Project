@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_elements_component_settings",
+  "info": {
+    "displayName": "ComponentSettings"
+  },
+  "options": {},
+  "attributes": {
+    "NavbarSettings": {
+      "displayName": "NavbarSettings",
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.navbar-settings"
+    }
+  }
+}

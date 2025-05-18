@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_elements_navbar_settings",
+  "info": {
+    "displayName": "NavbarSettings"
+  },
+  "options": {},
+  "attributes": {
+    "logoPosition": {
+      "type": "enumeration",
+      "enum": [
+        "     left",
+        "     center"
+      ]
+    },
+    "ctaVariant": {
+      "type": "enumeration",
+      "enum": [
+        "filled",
+        "outlined"
+      ]
+    }
+  }
+}
