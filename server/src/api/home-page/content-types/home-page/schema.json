@@ -1,11 +1,10 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "home_pages",
   "info": {
     "singularName": "home-page",
     "pluralName": "home-pages",
-    "displayName": "Home Page",
-    "description": ""
+    "displayName": "Home Page"
   },
   "options": {
     "draftAndPublish": true
@@ -16,6 +15,9 @@
     },
     "description": {
       "type": "text"
+    },
+    "tenant": {
+      "type": "uid"
     },
     "blocks": {
       "type": "dynamiczone",

@@ -4,8 +4,8 @@ import { notFound } from "next/navigation";
 
 async function loader(){
   const data = await getHomePage();
-  if (!data) notFound();
-  return { ...data.data }
+  if (!data || !data.data || !data.data.length) notFound();
+  return data.data[0]; // Return the first home page entry object
 }
 export default async function HomeRoute() {
   const data = await loader();

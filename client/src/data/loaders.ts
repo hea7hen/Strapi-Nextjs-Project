@@ -37,12 +37,17 @@ const homePageQuery = qs.stringify(
         },
     },
 );
-export async function getHomePage() {
-  const path = "/api/home-page";
+export async function getHomePage(tenant?: string) {
+  const path = "/api/home-pages";
   const BASE_URL = getStrapiURL();
 
+  // Add tenant filter if tenant is provided
+  const query = tenant
+    ? homePageQuery + `&filters[tenant][$eq]=${tenant}`
+    : homePageQuery;
+
   const url = new URL(path, BASE_URL);
-  url.search = homePageQuery;
+  url.search = query;
   return await fetchAPI(url.href, { method: "GET" });
 }
 
