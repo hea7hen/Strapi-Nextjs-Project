@@ -1,10 +1,11 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "theme_configs",
   "info": {
     "singularName": "theme-config",
     "pluralName": "theme-configs",
-    "displayName": "Theme Config"
+    "displayName": "Theme Config",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

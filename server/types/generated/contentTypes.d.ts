@@ -437,9 +437,10 @@ export interface ApiHomePageHomePage extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiThemeConfigThemeConfig extends Struct.SingleTypeSchema {
+export interface ApiThemeConfigThemeConfig extends Struct.CollectionTypeSchema {
   collectionName: 'theme_configs';
   info: {
+    description: '';
     displayName: 'Theme Config';
     pluralName: 'theme-configs';
     singularName: 'theme-config';
