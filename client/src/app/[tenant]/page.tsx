@@ -6,11 +6,16 @@ interface TenantPageProps {
   params: { tenant: string };
 }
 
-export default async function TenantHomePage({ params }: TenantPageProps) {
-  const tenant = params.tenant;
-  const data = await getHomePage(tenant);
+async function loader(params: { tenant: string }) {
+  const resolvedParams = await params;
+  const data = await getHomePage(resolvedParams.tenant);
   if (!data || !data.data || !data.data.length) notFound();
-  const homePage = data.data[0];
-  const blocks = homePage.blocks || [];
+  return data.data[0];
+}
+
+export default async function TenantHomePage({ params }: TenantPageProps) {
+  const data = await loader(params);
+  const blocks = data?.blocks || [];
+  console.log(data);
   return <BlockRenderer blocks={blocks} />;
 }

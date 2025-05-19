@@ -1,6 +1,33 @@
+import qs from "qs";
+
 export async function fetchThemeConfig(tenant: string) {
+    const baseUrl = process.env.STRAPI_URL;
+    if (!baseUrl) {
+        console.error("STRAPI_URL environment variable is not set.");
+        return {}; // Or throw an error
+    }
+
+    const path = "/api/theme-configs";
+
+    // Use qs to build the query string
+    const query = qs.stringify(
+        {
+            filters: {
+                tenant: {
+                    $eq: tenant
+                }
+            }
+            // Removed populate: 'deep' for testing
+        }
+    );
+
+    const url = `${baseUrl}${path}?${query}`;
+
+    // ADD THIS LINE: Log the generated URL to the server terminal
+    console.log("Fetching theme config with URL (without populate):", url);
+
     const res = await fetch(
-      `${process.env.STRAPI_URL}/api/theme-configs?filters[tenant][$eq]=${tenant}&populate=deep`,
+      url,
       { cache: 'no-store' } // or 'force-cache' for ISR/SSG
     );
 
@@ -13,7 +40,7 @@ export async function fetchThemeConfig(tenant: string) {
     }
 
     const data = await res.json();
-
+    console.log("Theme config data received:", data); // Keep this for debugging
     // Check if data.data exists, is an array, and has elements
     if (!data || !data.data || !Array.isArray(data.data) || data.data.length === 0) {
         console.warn(`No theme config found for tenant: ${tenant}`);

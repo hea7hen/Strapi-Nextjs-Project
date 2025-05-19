@@ -17,17 +17,26 @@
     "secondary": {
       "type": "string"
     },
-    "fonts": {
-      "displayName": "Fonts",
-      "type": "component",
-      "repeatable": false,
-      "component": "elements.fonts"
+    "logo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     },
-    "ComponentSettings": {
-      "displayName": "ComponentSettings",
+    "primaryFontName": {
+      "type": "string"
+    },
+    "secondaryFontName": {
+      "type": "string"
+    },
+    "navbarConfig": {
       "type": "component",
       "repeatable": false,
-      "component": "elements.component-settings"
+      "component": "elements.navbar-settings"
     },
     "tenant": {
       "type": "uid"

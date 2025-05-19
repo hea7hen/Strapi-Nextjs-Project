@@ -79,11 +79,23 @@ export interface ElementsLogo extends Struct.ComponentSchema {
 export interface ElementsNavbarSettings extends Struct.ComponentSchema {
   collectionName: 'components_elements_navbar_settings';
   info: {
+    description: '';
     displayName: 'NavbarSettings';
   };
   attributes: {
     ctaVariant: Schema.Attribute.Enumeration<['filled', 'outlined']>;
-    logoPosition: Schema.Attribute.Enumeration<['     left', '     center']>;
+    logoPosition: Schema.Attribute.Enumeration<['left', 'center']>;
+  };
+}
+
+export interface LayoutFooter extends Struct.ComponentSchema {
+  collectionName: 'components_layout_footers';
+  info: {
+    displayName: 'Footer';
+  };
+  attributes: {
+    logo: Schema.Attribute.Component<'elements.logo', false>;
+    navigation: Schema.Attribute.Component<'elements.link', true>;
   };
 }
 
@@ -109,6 +121,7 @@ declare module '@strapi/strapi' {
       'elements.link': ElementsLink;
       'elements.logo': ElementsLogo;
       'elements.navbar-settings': ElementsNavbarSettings;
+      'layout.footer': LayoutFooter;
       'layout.header': LayoutHeader;
     }
   }

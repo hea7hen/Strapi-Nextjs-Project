@@ -449,23 +449,22 @@ export interface ApiThemeConfigThemeConfig extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    ComponentSettings: Schema.Attribute.Component<
-      'elements.component-settings',
-      false
-    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    fonts: Schema.Attribute.Component<'elements.fonts', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::theme-config.theme-config'
     > &
       Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    navbarConfig: Schema.Attribute.Component<'elements.navbar-settings', false>;
     primary: Schema.Attribute.String;
+    primaryFontName: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     secondary: Schema.Attribute.String;
+    secondaryFontName: Schema.Attribute.String;
     tenant: Schema.Attribute.UID;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
