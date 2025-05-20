@@ -15,5 +15,5 @@ export interface ThemeConfig {
   
   export interface ComponentConfig {
     __component: string;
-    [key: string]: any;
+    [key: string]: unknown;
   }

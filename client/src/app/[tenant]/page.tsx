@@ -9,7 +9,7 @@ interface TenantPageProps {
 async function loader(params: { tenant: string }) {
   const resolvedParams = await params;
   const data = await getHomePage(resolvedParams.tenant);
-  if (!data || !data.data || !data.data.length) notFound();
+  if (!data || !Array.isArray(data.data) || !data.data.length) notFound();
   return data.data[0];
 }
 

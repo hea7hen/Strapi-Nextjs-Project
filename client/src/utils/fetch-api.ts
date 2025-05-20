@@ -1,3 +1,16 @@
+
+interface APIResponse<T = unknown> {
+  success: boolean;
+  data?: T;
+  error?: {
+    message: string;
+    status?: number;
+    statusText?: string;
+  };
+  status?: number;
+  statusText?: string;
+}
+
 type NextFetchRequestConfig = {
   revalidate?: number | false;
   tags?: string[];
@@ -10,7 +23,7 @@ interface FetchAPIOptions {
   next?: NextFetchRequestConfig;
 }
 
-export async function fetchAPI(url: string, options: FetchAPIOptions) {
+export async function fetchAPI<T = unknown>(url: string, options: FetchAPIOptions): Promise<APIResponse<T>> {
   const { method, authToken, body, next } = options;
 
   const headers: RequestInit & { next?: NextFetchRequestConfig } = {
@@ -28,15 +41,21 @@ export async function fetchAPI(url: string, options: FetchAPIOptions) {
     const contentType = response.headers.get("content-type");
     if (
       contentType &&
-      contentType.includes("application/json") &&
+      contentType.includes("application/json") && //Check
       response.ok
     ) {
       return await response.json();
     } else {
-      return { status: response.status, statusText: response.statusText };
+      return { success: false, status: response.status, statusText: response.statusText };
     }
   } catch (error) {
     console.error(`Error ${method} data:`, error);
-    throw error;
+    // throw error; //Catch review
+    return {
+      success: false,
+      error: {
+        message: error instanceof Error ? error.message : "An unknown error occurred"
+      }
+    };
   }
 }

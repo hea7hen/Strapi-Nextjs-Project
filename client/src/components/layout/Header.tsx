@@ -43,7 +43,7 @@ export function Header({ data }: HeaderProps) {
       <Link href="/">
         <StrapiImage
           src={logo.image.url}
-          alt={logo.image.alternativeText || "No alternative text provided"}
+          alt={logo.image.alternativeText || "Logo Image"}
           className={`header__logo header__logo--${
             headerLight ? "white" : "black"
           }`}

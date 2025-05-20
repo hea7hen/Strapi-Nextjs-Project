@@ -13,7 +13,7 @@ const homePageQuery = qs.stringify(
                 populate: {
                     image: {
                     fields: ["url", "alternativeText"],
-                    },
+                      },
                     logo: {
                     populate: {
                         image: {
@@ -72,6 +72,10 @@ const globalSettingQuery = qs.stringify({
   export async function getGlobalSettings() {
     const path = "/api/global";
     const url = new URL(path, BASE_URL);
+    console.log("URL", url);
+    console.log("URL END!!!!!!!!!!!!!!!!!!");
     url.search = globalSettingQuery;
     return fetchAPI(url.href, { method: "GET" });
   }
+  const response = await getGlobalSettings();
+  console.log("GlobalSettings response:", response);

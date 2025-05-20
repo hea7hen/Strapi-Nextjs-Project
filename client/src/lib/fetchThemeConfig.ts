@@ -24,7 +24,7 @@ export async function fetchThemeConfig(tenant: string) {
     const url = `${baseUrl}${path}?${query}`;
 
     // ADD THIS LINE: Log the generated URL to the server terminal
-    console.log("Fetching theme config with URL (without populate):", url);
+    // console.log("Fetching theme config with URL (without populate):", url);
 
     const res = await fetch(
       url,
@@ -40,7 +40,7 @@ export async function fetchThemeConfig(tenant: string) {
     }
 
     const data = await res.json();
-    console.log("Theme config data received:", data); // Keep this for debugging
+    // console.log("Theme config data received:", data); // Keep this for debugging
     // Check if data.data exists, is an array, and has elements
     if (!data || !data.data || !Array.isArray(data.data) || data.data.length === 0) {
         console.warn(`No theme config found for tenant: ${tenant}`);
