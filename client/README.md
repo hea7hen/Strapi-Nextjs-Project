@@ -1,36 +1,150 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Multi-Tenant Next.js Application
+
+A modern web application built with Next.js that supports multiple tenants, each with their own unique branding and content.
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+- Node.js (v18 or higher)
+- npm (v9 or higher)
+- Git
+
+## Project Structure
+
+```
+client/
+├── src/
+│   ├── app/                 # Next.js app directory
+│   │   ├── [tenant]/       # Tenant-specific routes
+│   │   ├── layout.tsx      # Root layout
+│   │   └── page.tsx        # Home page
+│   ├── components/         # React components
+│   ├── data/              # Data fetching and loaders
+│   ├── lib/               # Utility functions
+│   ├── sass/              # SCSS styles
+│   └── types.ts           # TypeScript type definitions
+├── public/                # Static assets
+└── package.json          # Project dependencies
+```
 
 ## Getting Started
 
-First, run the development server:
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd client
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. **Environment Setup**
+   Create a `.env.local` file in the root directory with the following variables:
+   ```
+   NEXT_PUBLIC_STRAPI_API_URL=http://localhost:1338
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+4. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+   The application will be available at `http://localhost:3000`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Available Scripts
 
-## Learn More
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run type-check` - Run TypeScript type checking
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Multi-tenant Support**: Each tenant has their own:
+  - Custom header/navigation
+  - Branding and styling
+  - Content and pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Modern Tech Stack**:
+  - Next.js 14
+  - TypeScript
+  - SCSS for styling
+  - Strapi CMS integration
 
-## Deploy on Vercel
+## Styling
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The project uses SCSS for styling with a modular approach:
+- Base styles in `src/sass/base/`
+- Component styles in `src/sass/components/`
+- Page-specific styles in `src/sass/pages/`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Tenant Configuration
+
+Each tenant requires:
+1. A unique tenant ID
+2. Global settings in Strapi CMS
+3. Theme configuration
+4. Content and pages
+
+## Development Guidelines
+
+1. **Component Structure**
+   - Use TypeScript for type safety
+   - Follow the established component hierarchy
+   - Keep components modular and reusable
+
+2. **Styling**
+   - Use SCSS modules for component-specific styles
+   - Follow BEM naming convention
+   - Maintain responsive design
+
+3. **Data Fetching**
+   - Use the provided data loaders
+   - Implement proper error handling
+   - Cache data when appropriate
+
+## Deployment
+
+1. **Build the application**
+   ```bash
+   npm run build
+   ```
+
+2. **Start the production server**
+   ```bash
+   npm run start
+   ```
+
+## Troubleshooting
+
+Common issues and solutions:
+
+1. **Missing Environment Variables**
+   - Ensure `.env.local` is properly configured
+   - Check for correct API URLs
+
+2. **Build Errors**
+   - Clear `.next` directory
+   - Run `npm install` again
+   - Check TypeScript errors
+
+3. **Styling Issues**
+   - Verify SCSS compilation
+   - Check for conflicting styles
+   - Ensure proper class names
+
+## Contributing
+
+1. Create a feature branch
+2. Make your changes
+3. Submit a pull request
+
+## License
+
+[Your License Here]
+
+## Support
+
+For support, please [contact details or support process]
