@@ -42,6 +42,11 @@ export interface HeroSectionProps extends Base<"blocks.hero-section"> {
   logo?: LogoProps;
   author?: string;
   darken?: boolean;
+  header?: {
+    logo: LogoProps;
+    navigation: LinkProps[];
+    cta: LinkProps;
+  };
 }
 
 export interface InfoBlockProps extends Base<"blocks.info-block"> {
@@ -51,4 +56,24 @@ export interface InfoBlockProps extends Base<"blocks.info-block"> {
   content: string;
   image: ImageProps;
   cta?: LinkProps;
+}
+
+export interface GlobalSettings {
+  data?: Array<{
+    id: number;
+    documentId: string;
+    title: string;
+    description: string;
+    tenant: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+    locale: string;
+    header: {
+      id: number;
+      logo: LogoProps;
+      navigation: LinkProps[];
+      cta: LinkProps;
+    };
+  }>;
 }

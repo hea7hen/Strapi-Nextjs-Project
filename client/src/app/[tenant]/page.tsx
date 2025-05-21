@@ -2,20 +2,22 @@ import { BlockRenderer } from "@/components/BlockRenderer";
 import { getHomePage } from "@/data/loaders";
 import { notFound } from "next/navigation";
 
-interface TenantPageProps {
-  params: { tenant: string };
+type HomePageData = {
+  data: Array<{ tenant: string; blocks?: unknown }>;
+};
+
+async function loader(tenant: string) {
+  const data = await getHomePage(tenant) as HomePageData;
+  if (!data || !data.data || !data.data.length) notFound();
+  // Find the home page for the current tenant
+  const page = data.data.find((entry) => entry.tenant === tenant);
+  if (!page) notFound();
+  return page;
 }
 
-async function loader(params: { tenant: string }) {
-  const resolvedParams = await params;
-  const data = await getHomePage(resolvedParams.tenant);
-  if (!data || !Array.isArray(data.data) || !data.data.length) notFound();
-  return data.data[0];
-}
-
-export default async function TenantHomePage({ params }: TenantPageProps) {
-  const data = await loader(params);
-  const blocks = data?.blocks || [];
-  console.log(data);
+export default async function HomeRoute({ params }: { params: { tenant: string } }) {
+  const data = await loader(params.tenant);
+  console.log('PAGE TENANT: ')
+  const blocks = Array.isArray(data?.blocks) ? data.blocks : [];
   return <BlockRenderer blocks={blocks} />;
 }

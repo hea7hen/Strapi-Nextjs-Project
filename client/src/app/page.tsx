@@ -11,12 +11,12 @@ async function loader() {
   if (!data || !data.data || !data.data.length) notFound();
   return data.data[0]; // Return the first home page entry object
 }
+
 export default async function HomeRoute() {
   const data = await loader();
   const blocks = data?.blocks || [];
   console.log(data);
   return (
     <BlockRenderer blocks={blocks} />
-  
   );
 }

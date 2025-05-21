@@ -4,9 +4,10 @@ export async function fetchHomePage(tenant: string) {
       { cache: 'no-store' }
     );
     const data = await res.json();
-    // console.log(data);
+    console.log("HOME PAGE!!!!",data);
     if (!data.data || !Array.isArray(data.data) || data.data.length === 0) {
         return {};
     }
+    // Return the first home page entry object (no header expectation)
     return data.data[0].attributes || {};
   }

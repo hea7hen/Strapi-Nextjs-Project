@@ -7,7 +7,6 @@ export function HeroSection({
   heading,
   cta,
   image,
-  logo,
   author,
   publishedAt,
   darken = false,

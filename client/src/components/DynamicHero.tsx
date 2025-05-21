@@ -1,4 +1,5 @@
-   // DynamicHero.tsx
-   export default function DynamicHero(props: any) {
-    return <section className="bg-primary text-white p-8">Hero Section: {JSON.stringify(props)}</section>;
-  }
+import { HeroSection } from "./blocks/HeroSection";
+
+export default function DynamicHero(props: any) {
+  return <HeroSection {...props} />;
+}

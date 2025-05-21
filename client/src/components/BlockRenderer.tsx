@@ -1,5 +1,4 @@
 import type { Block } from "@/types";
-
 import { HeroSection } from "@/components/blocks/HeroSection";
 import { InfoBlock } from "@/components/blocks/InfoBlock";
 
