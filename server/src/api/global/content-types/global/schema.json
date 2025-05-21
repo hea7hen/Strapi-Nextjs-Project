@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "home_pages",
+  "collectionName": "globals",
   "info": {
-    "singularName": "home-page",
-    "pluralName": "home-pages",
-    "displayName": "Home Page",
+    "singularName": "global",
+    "pluralName": "globals",
+    "displayName": "Global",
     "description": ""
   },
   "options": {
@@ -18,7 +18,7 @@
   "attributes": {
     "title": {
       "type": "string",
-      "default": "Home Page",
+      "default": "Navbar",
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -27,27 +27,25 @@
     },
     "description": {
       "type": "text",
-      "default": "Contains Hero section and Info Section",
+      "default": "Contains the Navbar components",
       "pluginOptions": {
         "i18n": {
           "localized": true
+        }
+      }
+    },
+    "header": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.header",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
         }
       }
     },
     "tenant": {
       "type": "uid"
-    },
-    "blocks": {
-      "type": "dynamiczone",
-      "components": [
-        "blocks.hero-section",
-        "blocks.info-block"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
     }
   }
 }
