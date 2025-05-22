@@ -81,6 +81,8 @@ project/
    npm run develop
    ```
    The Strapi admin panel will be available at `http://localhost:1338/admin`
+   
+![Screenshot 2025-05-20 145034](https://github.com/user-attachments/assets/111e24cb-a747-4f94-8115-fabff0f5a125)
 
    Start the frontend (Next.js):
    ```bash
@@ -88,6 +90,10 @@ project/
    npm run dev
    ```
    The application will be available at `http://localhost:3000`
+
+![Screenshot 2025-05-19 033203](https://github.com/user-attachments/assets/d93a4bd9-7691-49b8-9311-e55a72d759e3)
+
+   
 
 ## Available Scripts
 
@@ -198,8 +204,8 @@ Common issues and solutions:
 
 ## License
 
-[Your License Here]
+MIT
 
 ## Support
 
-For support, please [contact details or support process]
+For support, contact me on abhisheknair616@gmail.com
